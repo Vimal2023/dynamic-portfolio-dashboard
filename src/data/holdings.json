@@ -1,0 +1,23 @@
+[
+  {
+    "name": "TCS",
+    "purchasePrice": 3400,
+    "quantity": 10,
+    "exchange": "NSE",
+    "sector": "Technology"
+  },
+  {
+    "name": "HDFC Bank",
+    "purchasePrice": 1600,
+    "quantity": 5,
+    "exchange": "NSE",
+    "sector": "Financials"
+  },
+  {
+    "name": "Infosys",
+    "purchasePrice": 1450,
+    "quantity": 8,
+    "exchange": "NSE",
+    "sector": "Technology"
+  }
+]
