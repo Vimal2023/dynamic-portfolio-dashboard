@@ -3,7 +3,6 @@ import * as cheerio from "cheerio";
 
 export async function fetchGoogleFinanceData(company: string) {
   try {
-    // Example: TCS → TCS:NSE
     const symbolMap: Record<string, string> = {
       "TCS": "TCS:NSE",
       "Infosys": "INFY:NSE",
@@ -21,7 +20,6 @@ export async function fetchGoogleFinanceData(company: string) {
 
     const $ = cheerio.load(data);
 
-    // ⚠️ Selectors fragile hote hain (interview me mention karna)
     const peText = $("div:contains('P/E ratio')").next().text();
     const epsText = $("div:contains('Earnings per share')").next().text();
 

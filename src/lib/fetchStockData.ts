@@ -9,7 +9,6 @@ export interface LiveStockData extends Holding {
   earnings: number;
 }
 
-// Minimal safe type (because yahoo-finance2 typings are incomplete)
 type YahooQuote = {
   regularMarketPrice?: number;
 };
@@ -20,13 +19,13 @@ export async function fetchStockData(
   holdings: Holding[]
 ): Promise<LiveStockData[]> {
 
-  // 🔹 1️⃣ Cache check
+  // Cache check
   const cached = getCache<LiveStockData[]>(CACHE_KEY);
   if (cached) {
     return cached;
   }
 
-  // 🔹 2️⃣ Fetch with per-stock safety
+  // Fetch with per-stock safety
   const freshData = await Promise.all(
     holdings.map(async (holding) => {
       const yahooSymbol = mapToYahooSymbol(holding.name);
@@ -43,13 +42,13 @@ export async function fetchStockData(
     })
   );
 
-  // 🔹 3️⃣ Save last known good data
+  // Save last known good data
   setCache(CACHE_KEY, freshData);
 
   return freshData;
 }
 
-// ---------- SAFE HELPERS ----------
+// SAFE HELPERS
 
 async function safeYahooQuote(symbol: string): Promise<YahooQuote> {
   try {
@@ -70,7 +69,7 @@ async function safeGoogleFinance(name: string): Promise<{
   }
 }
 
-// Mapping company → Yahoo symbol
+// Mapping company 
 function mapToYahooSymbol(name: string): string {
   const map: Record<string, string> = {
     "TCS": "TCS.NS",
