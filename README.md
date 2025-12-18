@@ -5,6 +5,9 @@ The application fetches live stock market data, calculates portfolio metrics, an
 
 ---
 
+### video explanation ::
+https://www.loom.com/share/fb151896fc034387a2dc4d62fda4ebcf
+
 ## 🚀 Features
 
 - 📈 **Live Portfolio Data**
